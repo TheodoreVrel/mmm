@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://daliasxpijtwv"]
+
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="1_l80ey"]
+[ext_resource type="Texture2D" uid="uid://c50o74s0ci56p" path="res://assets/rooms_BG_wip/clock/clock_BGmorning.png" id="2_5m7fp"]
+[ext_resource type="Texture2D" uid="uid://c0fxptu34ydsa" path="res://assets/rooms_BG_wip/clock/clock_BGday.png" id="3_r0j2w"]
+[ext_resource type="Texture2D" uid="uid://rqhv0eokbdit" path="res://assets/rooms_BG_wip/clock/clock_BGnight.png" id="4_6jfda"]
+
+[node name="ClockRoom" instance=ExtResource("1_l80ey")]
+room_textures = Array[Texture]([ExtResource("2_5m7fp"), ExtResource("3_r0j2w"), ExtResource("4_6jfda")])
+
+[node name="RoomTexture" parent="." index="0"]
+texture = ExtResource("3_r0j2w")

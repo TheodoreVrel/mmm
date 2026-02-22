@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://djkkhdwajmlco"]
+
+[ext_resource type="PackedScene" uid="uid://d12xacv2ela35" path="res://scenes/NPCIcons/npc_map_icon.tscn" id="1_7pkml"]
+[ext_resource type="Texture2D" uid="uid://bhrgi6pjy021a" path="res://assets/imagje.png" id="2_4jyjs"]
+
+[node name="PlayerMapIcon" instance=ExtResource("1_7pkml")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_4jyjs")

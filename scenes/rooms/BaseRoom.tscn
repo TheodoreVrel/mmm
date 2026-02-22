@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://7a7xsoogt2yi"]
+
+[ext_resource type="Script" uid="uid://c4c5ur5fcqont" path="res://scenes/rooms/base_room.gd" id="1_a1bwm"]
+
+[node name="BaseRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a1bwm")
+
+[node name="RoomTexture" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="ClickableObjectsContainer" type="Node2D" parent="."]

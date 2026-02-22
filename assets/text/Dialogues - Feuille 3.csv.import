@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://r4duqurk3xlf"
+
+[deps]
+
+files=["res://assets/text/Dialogues - Feuille 3.test2.translation", "res://assets/text/Dialogues - Feuille 3.test.translation", "res://assets/text/Dialogues - Feuille 3.test3.translation", "res://assets/text/Dialogues - Feuille 3.test.translation", "res://assets/text/Dialogues - Feuille 3.test4.translation", "res://assets/text/Dialogues - Feuille 3.test.translation", "res://assets/text/Dialogues - Feuille 3.test5.translation"]
+
+source_file="res://assets/text/Dialogues - Feuille 3.csv"
+dest_files=["res://assets/text/Dialogues - Feuille 3.test2.translation", "res://assets/text/Dialogues - Feuille 3.test.translation", "res://assets/text/Dialogues - Feuille 3.test3.translation", "res://assets/text/Dialogues - Feuille 3.test.translation", "res://assets/text/Dialogues - Feuille 3.test4.translation", "res://assets/text/Dialogues - Feuille 3.test.translation", "res://assets/text/Dialogues - Feuille 3.test5.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccg8pjq480loc"]
+
+[ext_resource type="PackedScene" uid="uid://me378l6uwq1o" path="res://scenes/rooms/minimap_rooms/MinimapRoom.tscn" id="1_qrh71"]
+[ext_resource type="Shader" uid="uid://danmqkqigi3ds" path="res://shaders/highlight1.gdshader" id="2_lwpfd"]
+[ext_resource type="Texture2D" uid="uid://d214tr5j0ire2" path="res://assets/rooms_mini/hallway.png" id="3_lwpfd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_royk3"]
+resource_local_to_scene = true
+shader = ExtResource("2_lwpfd")
+shader_parameter/maxLineWidth = 21.0
+shader_parameter/minLineWidth = 7.5
+shader_parameter/speed = 2.75
+shader_parameter/blockSize = 33.0
+shader_parameter/color = Color(0.161, 0.02, 0.259, 1)
+shader_parameter/tolerance = 0.999
+shader_parameter/show = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvjfo"]
+size = Vector2(195, 118)
+
+[node name="HallwayMinimapRoom" instance=ExtResource("1_qrh71")]
+scale = Vector2(2.32, 1.45)
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_royk3")
+scale = Vector2(0.60037, 0.55)
+texture = ExtResource("3_lwpfd")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_yvjfo")

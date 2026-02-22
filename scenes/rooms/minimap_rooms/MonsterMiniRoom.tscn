@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctg74yxvlukiv"]
+
+[ext_resource type="PackedScene" uid="uid://me378l6uwq1o" path="res://scenes/rooms/minimap_rooms/MinimapRoom.tscn" id="1_h2y77"]
+[ext_resource type="Shader" uid="uid://danmqkqigi3ds" path="res://shaders/highlight1.gdshader" id="2_lckfk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1t53a"]
+resource_local_to_scene = true
+shader = ExtResource("2_lckfk")
+shader_parameter/maxLineWidth = 21.0
+shader_parameter/minLineWidth = 7.5
+shader_parameter/speed = 2.75
+shader_parameter/blockSize = 33.0
+shader_parameter/color = Color(0.161, 0.02, 0.259, 1)
+shader_parameter/tolerance = 0.999
+shader_parameter/show = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lckfk"]
+size = Vector2(190, 116)
+
+[node name="MonsterMinimapRoom" instance=ExtResource("1_h2y77")]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_1t53a")
+scale = Vector2(0.592857, 0.535)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_lckfk")

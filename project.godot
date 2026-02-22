@@ -1,0 +1,64 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="MMM"
+run/main_scene="uid://de7dac4ddmltl"
+config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/show_image=false
+config/icon="uid://c22e4v6log6dl"
+
+[autoload]
+
+RoomManager="*res://scenes/managers/RoomManager.tscn"
+ClickableObjectManager="*res://scenes/managers/ClickableObjectManager.tscn"
+GameManager="*res://scenes/managers/GameManager.tscn"
+MapManager="*res://scenes/managers/MapManager.tscn"
+SceneTransitionManager="*res://scenes/managers/SceneTransitionManager.tscn"
+TimeManager="*res://scenes/managers/TimeManager.tscn"
+SaveManager="*res://scenes/managers/SaveManager.tscn"
+GlobalDialogueData="*res://scripts/global_dialogue_data.gd"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/stretch/scale=0.68
+mouse_cursor/custom_image="uid://c5tecsm4k0wsu"
+mouse_cursor/custom_image_hotspot=Vector2(41, 25)
+
+[editor]
+
+movie_writer/movie_file="C:/Users/Ted/Documents/Godot/detective-chat/m.avi"
+import/use_multiple_threads=false
+
+[input]
+
+next={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(205, 18),"global_position":Vector2(214, 66),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(219, 20),"global_position":Vector2(228, 68),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[threading]
+
+worker_pool/max_threads=1

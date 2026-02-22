@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://me378l6uwq1o"]
+
+[ext_resource type="Script" uid="uid://cgrrat8krjl63" path="res://minimap_room.gd" id="1_meiuj"]
+[ext_resource type="Shader" uid="uid://danmqkqigi3ds" path="res://shaders/highlight1.gdshader" id="2_fk41a"]
+[ext_resource type="Texture2D" uid="uid://6jb4bgbjkagj" path="res://assets/rooms_mini/monster.png" id="3_fk41a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mkor"]
+resource_local_to_scene = true
+shader = ExtResource("2_fk41a")
+shader_parameter/maxLineWidth = 21.0
+shader_parameter/minLineWidth = 7.5
+shader_parameter/speed = 2.75
+shader_parameter/blockSize = 33.0
+shader_parameter/color = Color(0.161, 0.02, 0.259, 1)
+shader_parameter/tolerance = 0.999
+shader_parameter/show = false
+
+[node name="MinimapRoom" type="Node2D"]
+script = ExtResource("1_meiuj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5mkor")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_fk41a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="npc_spots" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="npc_spots"]
+position = Vector2(42, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="npc_spots"]
+position = Vector2(-42, 0)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

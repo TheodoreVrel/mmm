@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://1dfgq8dr3dj1"]
+
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="1_cyr55"]
+[ext_resource type="Texture2D" uid="uid://dbimjllhddmp7" path="res://assets/rooms_BG_wip/victim-room/image.png" id="2_kuk8v"]
+[ext_resource type="PackedScene" uid="uid://bwoaek2g7b810" path="res://scenes/objects/ClickableObject.tscn" id="3_th03h"]
+[ext_resource type="Texture2D" uid="uid://dyfgwirqqdqr7" path="res://assets/rooms_BG_wip/victim-room/vickyroom_hints2.png" id="4_j1jti"]
+[ext_resource type="Texture2D" uid="uid://jukwb2u8yt6b" path="res://assets/rooms_BG_wip/victim-room/vickyroom_hints3.png" id="5_25mog"]
+[ext_resource type="Texture2D" uid="uid://x66vm7fq5g01" path="res://assets/rooms_BG_wip/victim-room/vickyroom_hints1.png" id="6_4tq7w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iwc8f"]
+radius = 63.0317
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dh34k"]
+radius = 53.1507
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kuk8v"]
+radius = 104.552
+
+[node name="VictimRoom" instance=ExtResource("1_cyr55")]
+mouse_filter = 1
+room_id = "victim-room"
+
+[node name="RoomTexture" parent="." index="0"]
+texture = ExtResource("2_kuk8v")
+expand_mode = 5
+
+[node name="ClickableObject" parent="ClickableObjectsContainer" index="0" instance=ExtResource("3_th03h")]
+position = Vector2(851, 473)
+object_id = "alarmclock"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ClickableObjectsContainer/ClickableObject" index="0"]
+texture = ExtResource("4_j1jti")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickableObjectsContainer/ClickableObject" index="1"]
+position = Vector2(-190, -448)
+shape = SubResource("CircleShape2D_iwc8f")
+
+[node name="ClickableObject2" parent="ClickableObjectsContainer" index="1" instance=ExtResource("3_th03h")]
+position = Vector2(872, 477)
+object_id = "fungalcake"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ClickableObjectsContainer/ClickableObject2" index="0"]
+texture = ExtResource("5_25mog")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickableObjectsContainer/ClickableObject2" index="1"]
+position = Vector2(396, -2)
+shape = SubResource("CircleShape2D_dh34k")
+
+[node name="ClickableObject3" parent="ClickableObjectsContainer" index="2" instance=ExtResource("3_th03h")]
+position = Vector2(835, 486)
+object_id = "tornphoto"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ClickableObjectsContainer/ClickableObject3" index="0"]
+texture = ExtResource("6_4tq7w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickableObjectsContainer/ClickableObject3" index="1"]
+position = Vector2(-653.409, 461.364)
+shape = SubResource("CircleShape2D_kuk8v")
+
+[editable path="ClickableObjectsContainer/ClickableObject"]
+[editable path="ClickableObjectsContainer/ClickableObject2"]
+[editable path="ClickableObjectsContainer/ClickableObject3"]

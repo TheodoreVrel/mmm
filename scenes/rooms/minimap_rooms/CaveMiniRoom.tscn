@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7ce42sgd2v7a"]
+
+[ext_resource type="PackedScene" uid="uid://me378l6uwq1o" path="res://scenes/rooms/minimap_rooms/MinimapRoom.tscn" id="1_yki3e"]
+[ext_resource type="Shader" uid="uid://doev0q25o6fbh" path="res://shaders/grayscale.gdshader" id="2_aqucx"]
+[ext_resource type="Shader" uid="uid://danmqkqigi3ds" path="res://shaders/highlight1.gdshader" id="2_itdno"]
+[ext_resource type="Texture2D" uid="uid://b0fvh1c02p6iq" path="res://assets/rooms_mini/cave.png" id="4_aqucx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_80edo"]
+shader = ExtResource("2_aqucx")
+shader_parameter/weighted = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqucx"]
+resource_local_to_scene = true
+shader = ExtResource("2_itdno")
+shader_parameter/maxLineWidth = 21.0
+shader_parameter/minLineWidth = 7.5
+shader_parameter/speed = 2.75
+shader_parameter/blockSize = 33.0
+shader_parameter/color = Color(0.161, 0.02, 0.259, 1)
+shader_parameter/tolerance = 0.999
+shader_parameter/show = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxi6e"]
+size = Vector2(268, 160)
+
+[node name="CaveMinimapRoom" instance=ExtResource("1_yki3e")]
+material = SubResource("ShaderMaterial_80edo")
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_aqucx")
+scale = Vector2(0.828571, 0.75)
+texture = ExtResource("4_aqucx")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_mxi6e")

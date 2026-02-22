@@ -1,0 +1,217 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6w0ig16eabg3"]
+
+[ext_resource type="Script" uid="uid://xolmpuooeolk" path="res://scenes/managers/dialogue_manager.gd" id="1_70hjk"]
+[ext_resource type="FontFile" uid="uid://6csdxgyxq3n8" path="res://assets/averia-gwf/AveriaGWF-Regular.ttf" id="2_4hmvc"]
+[ext_resource type="FontFile" uid="uid://dxfk3spdld1n2" path="res://assets/averia-gwf/AveriaGWF-Italic.ttf" id="2_ulee0"]
+[ext_resource type="Texture2D" uid="uid://bp8c7i50usmo5" path="res://assets/characters/cat/cat_0004.png" id="3_w8nx0"]
+[ext_resource type="PackedScene" uid="uid://buk6chrxhfqxk" path="res://scenes/npc.tscn" id="4_w8nx0"]
+[ext_resource type="Texture2D" uid="uid://dfbmx5ati07ps" path="res://assets/characters/kitchen_witch/IMG_0032.png" id="5_4hmvc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ulee0"]
+font = ExtResource("2_ulee0")
+font_size = 83
+font_color = Color(0.923511, 0.789702, 0.833005, 1)
+outline_size = 9
+outline_color = Color(0.0584054, 0.000253011, 0.258502, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.741176)
+shadow_offset = Vector2(5, -2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulee0"]
+bg_color = Color(0.858824, 0.690196, 0.631373, 0.729412)
+border_width_left = 15
+border_width_top = 11
+border_width_right = 15
+border_width_bottom = 11
+border_color = Color(0.8, 0.329412, 0.301961, 1)
+corner_radius_top_left = 180
+corner_radius_top_right = 180
+corner_radius_bottom_right = 180
+corner_radius_bottom_left = 180
+corner_detail = 1
+
+[sub_resource type="Animation" id="Animation_fdrnh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpeakerLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mklfv"]
+resource_name = "start_dialogue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpeakerLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.28, 0.28), Vector2(1.042, 1.042), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Cat:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.180392, 0.180392, 0.180392, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NinePatchRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qyqf"]
+_data = {
+&"RESET": SubResource("Animation_fdrnh"),
+&"start_dialogue": SubResource("Animation_mklfv")
+}
+
+[node name="DialogueUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_70hjk")
+
+[node name="SpeakerLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.52
+anchor_right = 0.05
+anchor_bottom = 0.534
+offset_right = 295.0
+pivot_offset = Vector2(0, 60)
+text = "Germaine"
+label_settings = SubResource("LabelSettings_ulee0")
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.625
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_right = -35.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(570, 110.4)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulee0")
+
+[node name="TextLabel" type="RichTextLabel" parent="NinePatchRect"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 234.0
+offset_top = 30.0
+offset_right = -330.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.792477, 0.552441, 1)
+theme_override_colors/font_outline_color = Color(0.183702, 0.0185124, 0.129532, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("2_4hmvc")
+theme_override_font_sizes/normal_font_size = 50
+vertical_alignment = 1
+
+[node name="Cat" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(342, 417)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_w8nx0")
+
+[node name="NPC" parent="." instance=ExtResource("4_w8nx0")]
+z_index = -1
+position = Vector2(1241, 960)
+texture = ExtResource("5_4hmvc")
+offset = Vector2(0, -350)
+
+[node name="ChoiceBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.134
+anchor_top = 0.198
+anchor_right = 0.619
+anchor_bottom = 0.566
+offset_left = -20.368
+offset_top = -0.304016
+offset_right = -11.088
+offset_bottom = -0.768036
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0qyqf")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.39
+one_shot = true

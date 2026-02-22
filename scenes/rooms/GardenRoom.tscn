@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3drarwf4f1f0"]
+
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="1_evbsm"]
+[ext_resource type="Texture2D" uid="uid://7qitpwu17ed2" path="res://assets/rooms_BG_wip/garden/garden_BGmorning.png" id="2_5del5"]
+[ext_resource type="Texture2D" uid="uid://b6i05suidhc6w" path="res://assets/rooms_BG_wip/garden/garden_BGday.png" id="3_ojp65"]
+[ext_resource type="Texture2D" uid="uid://b16136byih84r" path="res://assets/rooms_BG_wip/garden/garden_BGnight.png" id="4_pdfso"]
+[ext_resource type="PackedScene" uid="uid://bwoaek2g7b810" path="res://scenes/objects/ClickableObject.tscn" id="5_ojp65"]
+[ext_resource type="Texture2D" uid="uid://mqqrh4y4hy2a" path="res://assets/rooms_BG_wip/garden/garden_CAVE.png" id="6_pdfso"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pw1i"]
+radius = 120.0
+height = 273.333
+
+[node name="GardenRoom" instance=ExtResource("1_evbsm")]
+mouse_filter = 1
+room_textures = Array[Texture]([ExtResource("2_5del5"), ExtResource("3_ojp65"), ExtResource("4_pdfso")])
+
+[node name="RoomTexture" parent="." index="0"]
+texture = ExtResource("2_5del5")
+
+[node name="ClickableObjectsContainer" parent="." index="1"]
+scale = Vector2(0.88, 0.88)
+
+[node name="ClickableObject" parent="ClickableObjectsContainer" index="0" instance=ExtResource("5_ojp65")]
+object_id = "shed"
+
+[node name="Sprite2D" parent="ClickableObjectsContainer/ClickableObject" index="0"]
+position = Vector2(960, 540)
+texture = ExtResource("6_pdfso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableObjectsContainer/ClickableObject" index="1"]
+z_index = 2
+position = Vector2(1565, 495)
+shape = SubResource("CapsuleShape2D_8pw1i")
+
+[editable path="ClickableObjectsContainer/ClickableObject"]

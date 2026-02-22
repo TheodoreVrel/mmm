@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv8ffvxi1nmm4"]
+
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="1_tf5s5"]
+[ext_resource type="Texture2D" uid="uid://7gxkwue4j65h" path="res://assets/rooms_BG_wip/kitchen/kitchen_BG.png" id="2_tf5s5"]
+
+[node name="KitchenRoom" instance=ExtResource("1_tf5s5")]
+room_id = "kitchen"
+room_textures = Array[Texture]([ExtResource("2_tf5s5")])
+
+[node name="RoomTexture" parent="." index="0"]
+texture = ExtResource("2_tf5s5")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

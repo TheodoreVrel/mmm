@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://solvmrfaqs1c"]
+
+[ext_resource type="PackedScene" uid="uid://me378l6uwq1o" path="res://scenes/rooms/minimap_rooms/MinimapRoom.tscn" id="1_kmkpe"]
+[ext_resource type="Shader" uid="uid://danmqkqigi3ds" path="res://shaders/highlight1.gdshader" id="2_ubxuk"]
+[ext_resource type="Texture2D" uid="uid://ch784uegwq62n" path="res://assets/rooms_mini/victim.png" id="3_ubxuk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7h5tq"]
+resource_local_to_scene = true
+shader = ExtResource("2_ubxuk")
+shader_parameter/maxLineWidth = 21.0
+shader_parameter/minLineWidth = 7.5
+shader_parameter/speed = 2.75
+shader_parameter/blockSize = 33.0
+shader_parameter/color = Color(0.161, 0.02, 0.259, 1)
+shader_parameter/tolerance = 0.999
+shader_parameter/show = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orf47"]
+size = Vector2(190, 116)
+
+[node name="VictimMinimapRoom" instance=ExtResource("1_kmkpe")]
+accessible_morning = false
+accessible_night = false
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_7h5tq")
+scale = Vector2(0.585714, 0.54)
+texture = ExtResource("3_ubxuk")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_orf47")

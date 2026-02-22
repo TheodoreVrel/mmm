@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bpa0wmxrk1apj"
+
+[deps]
+
+files=["res://assets/text/dialogues.character.translation", "res://assets/text/dialogues.sprite.translation", "res://assets/text/dialogues.cat.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.effets.translation", "res://assets/text/dialogues.room.translation", "res://assets/text/dialogues.time.translation", "res://assets/text/dialogues.start.translation", "res://assets/text/dialogues.variant.translation", "res://assets/text/dialogues.item.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.en.translation"]
+
+source_file="res://assets/text/dialogues.csv"
+dest_files=["res://assets/text/dialogues.character.translation", "res://assets/text/dialogues.sprite.translation", "res://assets/text/dialogues.cat.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.effets.translation", "res://assets/text/dialogues.room.translation", "res://assets/text/dialogues.time.translation", "res://assets/text/dialogues.start.translation", "res://assets/text/dialogues.variant.translation", "res://assets/text/dialogues.item.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.choice.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.next.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.en.translation", "res://assets/text/dialogues.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

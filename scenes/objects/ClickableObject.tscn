@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwoaek2g7b810"]
+
+[ext_resource type="Script" uid="uid://b1faji8dl6ftp" path="res://scripts/clickable_object.gd" id="1_hnts3"]
+
+[node name="ClickableObject" type="Area2D"]
+z_index = 2
+script = ExtResource("1_hnts3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

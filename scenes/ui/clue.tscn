@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://daoms8iwq7ewn"]
+
+[ext_resource type="Shader" uid="uid://danmqkqigi3ds" path="res://shaders/highlight1.gdshader" id="1_jac7j"]
+[ext_resource type="Script" uid="uid://dqqxn7hi3utfg" path="res://scenes/ui/clue.gd" id="2_44jxj"]
+[ext_resource type="Texture2D" uid="uid://cj0587emdest8" path="res://assets/hints/siesta.png" id="2_jac7j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpn78"]
+resource_local_to_scene = true
+shader = ExtResource("1_jac7j")
+shader_parameter/maxLineWidth = 111.0
+shader_parameter/minLineWidth = 48.75
+shader_parameter/speed = 4.75
+shader_parameter/blockSize = 162.235
+shader_parameter/color = Color(0.161, 0.02, 0.259, 1)
+shader_parameter/tolerance = 0.999
+shader_parameter/show = false
+
+[node name="Clue" type="TextureRect"]
+material = SubResource("ShaderMaterial_xpn78")
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -426.0
+offset_bottom = -158.167
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jac7j")
+expand_mode = 5
+script = ExtResource("2_44jxj")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

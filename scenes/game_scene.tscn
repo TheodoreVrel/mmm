@@ -1,0 +1,137 @@
+[gd_scene load_steps=21 format=3 uid="uid://b1a7o62g7i5p2"]
+
+[ext_resource type="PackedScene" uid="uid://nvpyov5dl6ly" path="res://scenes/world/map.tscn" id="1_w5aja"]
+[ext_resource type="PackedScene" uid="uid://b6w0ig16eabg3" path="res://scenes/ui/DialogueUI.tscn" id="2_onqr8"]
+[ext_resource type="PackedScene" uid="uid://whyctvtybism" path="res://scenes/ui/CluesUI.tscn" id="2_rvs2r"]
+[ext_resource type="PackedScene" uid="uid://dnhbl05a0eofl" path="res://scenes/rooms/CaveRoom.tscn" id="3_mw25s"]
+[ext_resource type="Script" uid="uid://dqc7t1dfvjgfq" path="res://scenes/canvas_layer_2.gd" id="4_5ay1a"]
+[ext_resource type="PackedScene" uid="uid://daliasxpijtwv" path="res://scenes/rooms/ClockRoom.tscn" id="4_tcjrq"]
+[ext_resource type="PackedScene" uid="uid://b862gtl87uwpp" path="res://scenes/rooms/EmoRoom.tscn" id="5_rvs2r"]
+[ext_resource type="PackedScene" uid="uid://d3drarwf4f1f0" path="res://scenes/rooms/GardenRoom.tscn" id="6_tqxxy"]
+[ext_resource type="PackedScene" uid="uid://tg08085tytm2" path="res://scenes/rooms/Hallway.tscn" id="7_5ay1a"]
+[ext_resource type="PackedScene" uid="uid://dv8ffvxi1nmm4" path="res://scenes/rooms/KitchenRoom.tscn" id="8_ldkr4"]
+[ext_resource type="PackedScene" uid="uid://s7xjk1os16f2" path="res://scenes/rooms/MonsterRoom.tscn" id="9_liy57"]
+[ext_resource type="PackedScene" uid="uid://1dfgq8dr3dj1" path="res://scenes/rooms/VictimRoom.tscn" id="10_mwyo0"]
+[ext_resource type="Script" uid="uid://iwuln5mk065x" path="res://scenes/camera_2d.gd" id="11_tcjrq"]
+[ext_resource type="Texture2D" uid="uid://cydsju4rjc06w" path="res://assets/ui/icons_0000.png" id="13_ldkr4"]
+[ext_resource type="Shader" uid="uid://danmqkqigi3ds" path="res://shaders/highlight1.gdshader" id="13_liy57"]
+[ext_resource type="Script" uid="uid://comoia4qgxcgm" path="res://scenes/music_handler.gd" id="16_liy57"]
+[ext_resource type="AudioStream" uid="uid://cyuer34ogw4fd" path="res://assets/music/castle_morning.ogg" id="17_77hjl"]
+[ext_resource type="AudioStream" uid="uid://bja41xfyfal7j" path="res://assets/music/castle_day.ogg" id="18_6aqbo"]
+[ext_resource type="AudioStream" uid="uid://bvo3eiptv0l50" path="res://assets/music/castle_night.ogg" id="19_ro0ie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwyo0"]
+shader = ExtResource("13_liy57")
+shader_parameter/maxLineWidth = 28.5
+shader_parameter/minLineWidth = 7.5
+shader_parameter/speed = 3.0
+shader_parameter/blockSize = 44.25
+shader_parameter/color = Color(0.32549, 0.0196078, 0.258824, 1)
+shader_parameter/tolerance = 0.444
+shader_parameter/show = false
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_w5aja")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="CluesUi" parent="CanvasLayer2" instance=ExtResource("2_rvs2r")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="DialogueUi" parent="CanvasLayer" instance=ExtResource("2_onqr8")]
+visible = false
+
+[node name="Rooms" type="CanvasLayer" parent="."]
+script = ExtResource("4_5ay1a")
+
+[node name="CaveRoom" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("3_mw25s")]
+visible = false
+minimap_analog = NodePath("../../Map/Rooms/CaveMinimapRoom")
+
+[node name="ClockRoom" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("4_tcjrq")]
+visible = false
+room_id = "clock-room"
+minimap_analog = NodePath("../../Map/Rooms/ClockMinimapRoom")
+characters_present = Array[String](["time-witch"])
+
+[node name="EmoRoom" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("5_rvs2r")]
+visible = false
+room_id = "emo-room"
+minimap_analog = NodePath("../../Map/Rooms/EmoMinimapRoom")
+
+[node name="GardenRoom" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("6_tqxxy")]
+visible = false
+room_id = "garden"
+minimap_analog = NodePath("../../Map/Rooms/GardenMinimapRoom")
+
+[node name="Hallway" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("7_5ay1a")]
+visible = false
+room_id = "hallway"
+minimap_analog = NodePath("../../Map/Rooms/HallwayMinimapRoom")
+
+[node name="KitchenRoom" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("8_ldkr4")]
+visible = false
+minimap_analog = NodePath("../../Map/Rooms/KitchenMinimapRoom")
+characters_present = Array[String](["edgy-witch"])
+
+[node name="MonsterRoom" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("9_liy57")]
+visible = false
+room_id = "monster-room"
+minimap_analog = NodePath("../../Map/Rooms/MonsterMinimapRoom")
+
+[node name="VictimRoom" parent="Rooms" node_paths=PackedStringArray("minimap_analog") instance=ExtResource("10_mwyo0")]
+visible = false
+minimap_analog = NodePath("../../Map/Rooms/VictimMinimapRoom")
+
+[node name="OpenButton" type="Button" parent="Rooms"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(120, 70)
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 164.0
+offset_bottom = 167.0
+
+[node name="Label" type="Label" parent="Rooms/OpenButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Clues"
+
+[node name="TextureRect" type="TextureRect" parent="Rooms/OpenButton"]
+material = SubResource("ShaderMaterial_mwyo0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_ldkr4")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.88, 0.88)
+script = ExtResource("11_tcjrq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("16_liy57")
+musics = Array[AudioStream]([ExtResource("17_77hjl"), ExtResource("18_6aqbo"), ExtResource("19_ro0ie")])
+
+[connection signal="mouse_entered" from="Rooms/OpenButton" to="Rooms" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Rooms/OpenButton" to="Rooms" method="_on_button_mouse_exited"]

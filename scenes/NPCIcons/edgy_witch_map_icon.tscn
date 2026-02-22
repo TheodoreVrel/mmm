@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://buefane8u1vc4"]
+
+[ext_resource type="PackedScene" uid="uid://d12xacv2ela35" path="res://scenes/NPCIcons/npc_map_icon.tscn" id="1_fc8tu"]
+[ext_resource type="Texture2D" uid="uid://cok6uli2vtaxq" path="res://assets/IMG_9996.png" id="2_qoqae"]
+
+[node name="EdgyWitchMapIcon" instance=ExtResource("1_fc8tu")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qoqae")

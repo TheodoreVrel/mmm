@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b862gtl87uwpp"]
+
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="1_35tpx"]
+[ext_resource type="Texture2D" uid="uid://bytyhw2pigxx" path="res://assets/image.png" id="2_qesva"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6be0"]
+resource_local_to_scene = true
+atlas = ExtResource("2_qesva")
+region = Rect2(258.682, 214, 284.546, 173.637)
+
+[node name="EmoRoom" instance=ExtResource("1_35tpx")]
+
+[node name="RoomTexture" parent="." index="0"]
+texture = SubResource("AtlasTexture_y6be0")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnhbl05a0eofl"]
+
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="1_t2uyy"]
+[ext_resource type="Texture2D" uid="uid://crqkvhkf4r7lw" path="res://assets/rooms_BG_wip/cave/cave_BGmorning.png" id="2_plml2"]
+[ext_resource type="Texture2D" uid="uid://cg1o18xxckie2" path="res://assets/rooms_BG_wip/cave/cave_BGday.png" id="3_kkiwe"]
+[ext_resource type="Texture2D" uid="uid://q3krn625bcej" path="res://assets/rooms_BG_wip/cave/cave_BGnight.png" id="4_3ukj3"]
+
+[node name="CaveRoom" instance=ExtResource("1_t2uyy")]
+room_id = "cave"
+room_textures = Array[Texture]([ExtResource("2_plml2"), ExtResource("3_kkiwe"), ExtResource("4_3ukj3")])
+
+[node name="RoomTexture" parent="." index="0"]
+texture = ExtResource("2_plml2")

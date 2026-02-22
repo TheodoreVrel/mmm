@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwgtxudlwsgcd"]
+
+[ext_resource type="Script" uid="uid://drwunyo5y57aj" path="res://scenes/managers/clickable_object_manager.gd" id="1_l2bud"]
+
+[node name="ClickableObjectManager" type="Node2D"]
+script = ExtResource("1_l2bud")

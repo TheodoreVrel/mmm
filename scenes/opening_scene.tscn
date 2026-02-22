@@ -1,0 +1,1637 @@
+[gd_scene format=3 uid="uid://de7dac4ddmltl"]
+
+[ext_resource type="Script" uid="uid://6eftk8kt2nly" path="res://scripts/opening_scene.gd" id="1_oqnsc"]
+[ext_resource type="Script" uid="uid://bvq4yxujqs7tc" path="res://scenes/world/map.gd" id="2_2mxj8"]
+[ext_resource type="Shader" uid="uid://doyes3yrle5cw" path="res://scenes/world/squiggles.gdshader" id="3_b26j0"]
+[ext_resource type="Texture2D" uid="uid://btakglqnd58va" path="res://assets/castle/castle_whole_sky_0002.png" id="4_y1uuy"]
+[ext_resource type="Texture2D" uid="uid://b1t4loa85u4f4" path="res://assets/castle/castle_whole_sky_0000.png" id="5_ufgib"]
+[ext_resource type="Texture2D" uid="uid://bmwoxacj1ri4l" path="res://assets/castle/castle_whole_sky_0001.png" id="6_pvybd"]
+[ext_resource type="Texture2D" uid="uid://djn5wl5u8ugku" path="res://assets/castle/castle_whole_GEAR1.png" id="7_82m7v"]
+[ext_resource type="Texture2D" uid="uid://b4786k2ceh4x8" path="res://assets/castle/castle_whole_GEAR2.png" id="8_ojkh3"]
+[ext_resource type="Texture2D" uid="uid://bm6q5ejnxl3na" path="res://assets/castle/castle_whole_CHAIN.png" id="9_5cjd8"]
+[ext_resource type="Texture2D" uid="uid://dd4w351wuao1h" path="res://assets/castle/castle_whole_castle_0000.png" id="10_l5jp5"]
+[ext_resource type="PackedScene" uid="uid://b7ce42sgd2v7a" path="res://scenes/rooms/minimap_rooms/CaveMiniRoom.tscn" id="11_irbka"]
+[ext_resource type="PackedScene" uid="uid://cfxs44bgqw4dg" path="res://scenes/rooms/minimap_rooms/ClockMiniRoom.tscn" id="12_kba22"]
+[ext_resource type="PackedScene" uid="uid://ba6yu0itx76uv" path="res://scenes/rooms/minimap_rooms/EmoMiniRoom.tscn" id="13_ooirh"]
+[ext_resource type="PackedScene" uid="uid://b05ara6386pd3" path="res://scenes/rooms/minimap_rooms/GardenMiniRoom.tscn" id="14_cacl5"]
+[ext_resource type="PackedScene" uid="uid://ccg8pjq480loc" path="res://scenes/rooms/minimap_rooms/HallwayMini.tscn" id="15_botym"]
+[ext_resource type="PackedScene" uid="uid://blfx4fhxg8jcu" path="res://scenes/rooms/minimap_rooms/KitchenMiniRoom.tscn" id="16_l2ve6"]
+[ext_resource type="PackedScene" uid="uid://ctg74yxvlukiv" path="res://scenes/rooms/minimap_rooms/MonsterMiniRoom.tscn" id="17_qwgya"]
+[ext_resource type="PackedScene" uid="uid://solvmrfaqs1c" path="res://scenes/rooms/minimap_rooms/VictimMiniRoom.tscn" id="18_hrx77"]
+[ext_resource type="Texture2D" uid="uid://doxvwaa2n1uy3" path="res://assets/castle/castle_whole_castle_0002.png" id="19_rttne"]
+[ext_resource type="Texture2D" uid="uid://cc8ve4pspt2nu" path="res://assets/castle/castle_whole_castle_0001.png" id="20_vx1kq"]
+[ext_resource type="PackedScene" uid="uid://b6w0ig16eabg3" path="res://scenes/ui/DialogueUI.tscn" id="21_mpe04"]
+[ext_resource type="Script" uid="uid://comoia4qgxcgm" path="res://scenes/music_handler.gd" id="22_aboey"]
+[ext_resource type="AudioStream" uid="uid://cyuer34ogw4fd" path="res://assets/music/castle_morning.ogg" id="23_1o2i4"]
+[ext_resource type="AudioStream" uid="uid://bja41xfyfal7j" path="res://assets/music/castle_day.ogg" id="24_k52as"]
+[ext_resource type="AudioStream" uid="uid://bvo3eiptv0l50" path="res://assets/music/castle_night.ogg" id="25_6uqah"]
+[ext_resource type="Script" uid="uid://dqc7t1dfvjgfq" path="res://scenes/canvas_layer_2.gd" id="26_rv2t6"]
+[ext_resource type="PackedScene" uid="uid://tg08085tytm2" path="res://scenes/rooms/Hallway.tscn" id="27_ese5y"]
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="28_2sxql"]
+[ext_resource type="Texture2D" uid="uid://bekh8gr8jv3fx" path="res://assets/cat_office.png" id="29_2mxj8"]
+[ext_resource type="Script" uid="uid://iwuln5mk065x" path="res://scenes/camera_2d.gd" id="30_b26j0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7rdmv"]
+frequency = 0.0041
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6j5tl"]
+noise = SubResource("FastNoiseLite_7rdmv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rc1y"]
+shader = ExtResource("3_b26j0")
+shader_parameter/scale = Vector2(5, 5)
+shader_parameter/strength = 0.405
+shader_parameter/fps = 2.0
+shader_parameter/noise = SubResource("NoiseTexture2D_6j5tl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0rc1y"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aopek"]
+noise = SubResource("FastNoiseLite_0rc1y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkv7c"]
+shader = ExtResource("3_b26j0")
+shader_parameter/scale = Vector2(15, 20)
+shader_parameter/strength = 0.15
+shader_parameter/fps = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_aopek")
+
+[sub_resource type="Animation" id="Animation_8x8x7"]
+resource_name = "LayoutChange1"
+length = 5.0
+step = 0.0033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CastleVisuals/CastleSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.75248),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [ExtResource("19_rttne"), ExtResource("10_l5jp5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("CastleVisuals/Backgrounds/BackgroundSpriteMorning:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.66667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_ufgib"), ExtResource("6_pvybd")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("CastleVisuals/Backgrounds/BackgroundSpriteMorning:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GearAnimator")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("gears_churning"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rooms/MonsterMinimapRoom:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0792079, 0.633333, 1.13333, 1.86667, 2.23333, 2.4, 3.03333, 3.33333, 3.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-96, -201), Vector2(-96, -201), Vector2(-96, -66), Vector2(99, -66), Vector2(99, -66), Vector2(18.1845, -66), Vector2(18.1845, -66), Vector2(-231.175, -66), Vector2(-231.175, -180), Vector2(-300.845, -259.16)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rooms/MonsterMinimapRoom:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0330033, 0.0528053, 0.0825083, 3.33333, 3.46667, 3.77558, 3.80858, 3.82838, 3.85809),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0204104, 0.0, 0.0, 0.37001, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rooms/VictimMinimapRoom:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.833333, 1.16667, 1.6, 2.46667, 3.5, 3.76667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-302, -250), Vector2(-302, -250), Vector2(-302, -217.44), Vector2(-183.61, -201.545), Vector2(-183.61, 100), Vector2(90.525, 100), Vector2(90.525, -21.105)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Rooms/VictimMinimapRoom:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.699665, 0.729373, 0.762375, 0.861385, 0.917492, 1.13333, 1.93333, 3.79933, 3.83234, 3.85214, 3.88184),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.246091, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Rooms/EmoMinimapRoom:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.866667, 1, 1.6, 1.93333, 2.26667, 3.52805, 4.14851, 4.18152, 4.29703),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-260, 140), Vector2(-260, 168.26), Vector2(0, 168.26), Vector2(0, 168.26), Vector2(220.245, 199.62), Vector2(210, 207.12), Vector2(324.84, 207), Vector2(324.84, 207), Vector2(-265.772, 207), Vector2(-269.225, 204), Vector2(-269.225, 154.994)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Rooms/EmoMinimapRoom:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.866667, 1.26667, 1.93333, 4.06931, 4.13432, 4.16832, 4.20099),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.246091, 0.0, 0.0, -0.123918, -0.136136, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Rooms/KitchenMinimapRoom:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.00330033, 0.356436, 0.544555, 0.719472, 1.14191, 1.41584, 3.41464, 3.76568, 4.14521, 4.45545, 4.64356, 4.81848, 4.87129),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(550, 350), Vector2(471, 50.11), Vector2(471, 217.72), Vector2(471, 217.72), Vector2(471, 217.72), Vector2(471, 471.805), Vector2(471, 471.805), Vector2(512.155, 470), Vector2(365.175, 470), Vector2(262.075, 465), Vector2(262.075, 465), Vector2(260, 319.73), Vector2(259, 336.38)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Rooms/KitchenMinimapRoom:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.00330043, 0.419142, 0.488449, 0.544555, 0.59736, 3.60726, 3.77228, 4.17162, 4.31683, 4.77228, 4.82509, 4.86799),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.123918, 0.123918, 0.0, 0.0, -0.246091, -0.244346, 0.0, 0.0, 0.123918, 0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Rooms/ClockMinimapRoom:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.663366, 1.15512, 1.28383, 1.37624, 3.54455, 3.79208, 4.0231, 4.20462, 4.71947, 4.93729, 4.9802),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(250, 348), Vector2(252.42, 402), Vector2(187.393, 402), Vector2(187, 402.643), Vector2(187, 375), Vector2(187, 375), Vector2(184.853, 381.86), Vector2(335, 267), Vector2(382.795, 220), Vector2(480, 220), Vector2(481, 20.84), Vector2(480, 47.53)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Rooms/ClockMinimapRoom:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(-0.00660062, 1.17492, 1.20792, 1.24422, 3.63696, 3.94719, 4.20462, 4.74918, 4.87789, 4.9604, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0349066, 0.0, 0.0, -0.575959, 0.0, 0.0, 0.0523599, -0.0349066, 0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Rooms/HallwayMinimapRoom:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.00660068, 0.0693069, 0.168317, 0.356436, 2.21444, 2.27715, 2.37616, 2.56428, 3.61716, 3.69967, 3.79538, 3.82178, 3.90099, 4.0132, 4.10295, 4.16566, 4.26467, 4.45279, 4.69307, 4.72937, 4.75248),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.148353, -0.122173, 0.0349066, -0.0174533, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0174533, -0.0174533, 0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Rooms/CaveMinimapRoom:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.0310441, 0.112608, 0.175314, 0.274324, 0.462443, 1.40508, 1.46778, 1.56679, 1.75491, 3.33751, 3.40022, 3.49923, 3.68734),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Rooms/GardenMinimapRoom:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.0310441, 0.112608, 0.175314, 0.274324, 0.462443, 0.577558, 0.640264, 0.739274, 0.927393, 2.5156, 2.5783, 2.67731, 2.86543, 4.57351, 4.63622, 4.73523, 4.92335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CastleVisuals/CastleSprite:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.0858086, 0.188119, 0.382395, 0.484705, 0.646865, 0.749175, 0.947067, 1.04938, 1.51801, 1.62032, 2.11405, 2.21636, 2.96734, 3.06965, 3.79552, 3.89783, 4.39784, 4.50015, 4.71287),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CastleVisuals/Backgrounds:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1920, 0), Vector2(0, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Rooms/HallwayMinimapRoom:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.567657, 0.990099, 3.90429, 3.9604, 4.56106, 4.70627),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-145, 351), Vector2(-145, 403.13), Vector2(-191.255, 403.13), Vector2(-191.255, 403.13), Vector2(-145, 403.13), Vector2(-145, 403.13), Vector2(-145.79, 337.205)]
+}
+
+[sub_resource type="Animation" id="Animation_1tgw4"]
+resource_name = "LayoutChange2"
+length = 5.0
+step = 0.0033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CastleVisuals/CastleSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00330031, 1.62046),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [ExtResource("10_l5jp5"), ExtResource("20_vx1kq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("CastleVisuals/CastleSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.36667, 1.76667, 2.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GearAnimator")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("gears_churning"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rooms/MonsterMinimapRoom:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.828383, 1.16667, 1.24092, 1.49505, 1.65347, 1.75185, 1.83828, 2.14851, 2.36304, 2.41914, 2.74708, 3.24752, 3.80198, 4.16832),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-300.845, -259.16), Vector2(-302, -250), Vector2(-302, -238.88), Vector2(-302, -225.083), Vector2(-220, -165), Vector2(-230.29, -162.53), Vector2(-220, -165), Vector2(-230.64, -164.416), Vector2(-230.64, -164.416), Vector2(-230.64, 320), Vector2(-230, 306), Vector2(-226.792, 306), Vector2(215, 306), Vector2(215, 306), Vector2(215, 360)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rooms/MonsterMinimapRoom:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.699665, 0.729373, 0.762375, 0.861385, 0.917492, 1.13333, 1.46666, 1.57756, 1.67657, 1.84488, 2.31023, 2.36304, 2.39274, 2.43234),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.471239, 0.471239, 0.0, -0.123918, 0.0, 0.0, 0.0785398, -0.0872665, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rooms/VictimMinimapRoom:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0132013, 3.33491, 3.57426, 3.82178, 4.30033, 4.33003, 4.35974, 4.41254, 4.53135, 4.99541),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(90.525, -21.105), Vector2(90.525, -21.105), Vector2(102.92, -21.105), Vector2(102.92, -21.105), Vector2(103, 183.895), Vector2(103, 184), Vector2(202.726, 184), Vector2(212, 184), Vector2(212, 224), Vector2(212, 224)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rooms/VictimMinimapRoom:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4.31683, 4.35644, 4.50165),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.523599, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Rooms/EmoMinimapRoom:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.866667, 1.82838, 3.02063, 4.9835),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-260, 140), Vector2(-260, 215), Vector2(0, 215), Vector2(500, 215), Vector2(500, 215), Vector2(500, -67)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Rooms/EmoMinimapRoom:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.343234, 1.26667, 1.42244, 1.82178, 1.88679, 1.92079, 1.9505),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.10472, 0.0, 0.0, 0.0523599, 0.0698132, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Rooms/KitchenMinimapRoom:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0264026, 0.128713, 0.244224, 4.09571, 4.42904, 4.60726, 4.85512, 4.99026),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(259, 336.38), Vector2(259, 336.38), Vector2(259, 598.27), Vector2(259, 598.27), Vector2(259, 533.445), Vector2(-54, 533), Vector2(-54, 533), Vector2(-54, 423)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Rooms/KitchenMinimapRoom:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.0297031, 0.19802, 0.227728, 0.26073, 0.35974, 0.415846, 4.48828, 4.57195, 4.73927, 4.8165, 4.93234, 4.96452, 4.98383),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, 0.174533, -0.261799, 0.0, -0.0436332, 0.0174533, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Rooms/ClockMinimapRoom:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.029703, 0.0825083, 0.162963, 0.270627, 0.392739, 0.500528, 0.79538, 1.74257, 1.80858, 1.92739, 2.0066, 2.11269, 2.27723, 2.49682, 3.20792, 3.71904, 4.9901),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(480, 47.53), Vector2(480, 139.923), Vector2(480, 139.923), Vector2(480, 321.149), Vector2(480, 400.449), Vector2(480, 400.449), Vector2(239.7, 400.449), Vector2(239.7, 400.449), Vector2(239.7, 362.419), Vector2(191.53, 347.177), Vector2(173.08, 317.326), Vector2(173.08, 317.326), Vector2(57.6986, 317.326), Vector2(57.699, 139.256), Vector2(57.699, 139.256), Vector2(-149, 139.256), Vector2(-149, -164.67)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Rooms/ClockMinimapRoom:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.72277, 1.81518, 1.90099, 2.0099),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.37001, 0.296706, 0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Rooms/HallwayMinimapRoom:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.00660068, 0.0693069, 0.168317, 0.356436, 2.21444, 2.27715, 2.37616, 2.56428, 4.10295, 4.16566, 4.26467, 4.45279),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Rooms/CaveMinimapRoom:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.0310441, 0.112608, 0.175314, 0.274324, 0.462443, 1.40508, 1.46778, 1.56679, 1.75491, 3.33751, 3.40022, 3.49923, 3.68734),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Rooms/GardenMinimapRoom:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.0310441, 0.112608, 0.175314, 0.274324, 0.462443, 0.577558, 0.640264, 0.739274, 0.927393, 2.5156, 2.5783, 2.67731, 2.86543, 4.57351, 4.63622, 4.73523, 4.92335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CastleVisuals/CastleSprite:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.0858086, 0.188119, 0.382395, 0.484705, 0.646865, 0.749175, 0.947067, 1.04938, 1.51801, 1.62032, 2.11405, 2.21636, 2.96734, 3.06965, 3.79552, 3.89783, 4.39784, 4.50015, 4.71287),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CastleVisuals/Backgrounds:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1920, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Rooms/HallwayMinimapRoom:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.0132014, 0.983596, 4.27723, 4.49835, 4.99541),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-145.79, 337.205), Vector2(-145.79, 510), Vector2(-145.79, 510), Vector2(-139, 222), Vector2(-139, 222)]
+}
+
+[sub_resource type="Animation" id="Animation_0rc1y"]
+resource_name = "LayoutChange3"
+length = 5.0
+step = 0.0033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CastleVisuals/CastleSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00330031, 1.62046),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [ExtResource("10_l5jp5"), ExtResource("20_vx1kq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("CastleVisuals/CastleSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.36667, 1.76667, 2.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GearAnimator")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("gears_churning"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rooms/MonsterMinimapRoom:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.811881, 1.46535, 1.77558, 2.30363, 2.70032, 3.27551, 4.24502, 4.49214, 4.72026, 4.79154, 4.9769),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(215, 360), Vector2(430, 360), Vector2(430, 360), Vector2(430, 306), Vector2(354.906, 306), Vector2(200, 306), Vector2(85, 306), Vector2(85, -50), Vector2(85, -50), Vector2(-96, -50), Vector2(-96, -50), Vector2(-96, -201)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rooms/MonsterMinimapRoom:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rooms/VictimMinimapRoom:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.00952832, 1.13531, 1.34274, 1.41205, 1.67129, 1.93532, 2.70046, 3.04337, 3.18521, 3.40201, 3.79184, 4.53967, 4.77253, 4.91511),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(212, 224), Vector2(212, 224), Vector2(212, 224), Vector2(212, 189.485), Vector2(165.109, 149.392), Vector2(165.109, 149.392), Vector2(40.6029, 42.9355), Vector2(40.6029, 42.9355), Vector2(40.603, 25), Vector2(40.603, 25), Vector2(-210, 25), Vector2(-219, -178.077), Vector2(-302, -220.87), Vector2(-302, -250)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rooms/VictimMinimapRoom:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.23036, 1.41254, 2.63867, 3.17095, 4.30679, 4.49214, 4.82482, 4.9769),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.575959, 0.575959, 0.0, 0.0, 0.420624, 0.420624, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Rooms/EmoMinimapRoom:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.11868, 3.51314, 3.76026, 3.88382, 4.07392, 4.25963, 4.40185, 4.59134, 4.63946, 4.678, 4.82145),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(500, -67), Vector2(500, -67), Vector2(500, 219.299), Vector2(305.523, 219.299), Vector2(305.523, 219.299), Vector2(85.4951, 219.299), Vector2(85.495, 95), Vector2(-8.49756, 95), Vector2(-8.49756, 95), Vector2(-77.1978, 95), Vector2(-77.198, 140), Vector2(-260, 140)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Rooms/EmoMinimapRoom:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Rooms/KitchenMinimapRoom:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.00541267, 0.684366, 1.03954, 1.84554, 2.88743, 3.30402, 3.85056, 4.45, 4.93),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-54, 423), Vector2(-54, 503.96), Vector2(-54, 503.96), Vector2(256.632, 503.96), Vector2(256.632, 503.96), Vector2(400, 503.96), Vector2(471, 504), Vector2(550, 504), Vector2(550, 350)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Rooms/KitchenMinimapRoom:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Rooms/ClockMinimapRoom:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.0052803, 1.01355, 2.02772, 2.21694, 2.62441, 3.37531, 3.746, 4.05016, 4.15947, 4.25452, 4.58942, 4.68224, 4.80539),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-149, -164.67), Vector2(-149, 91.1589), Vector2(-149, 91.1589), Vector2(-149, 185), Vector2(-149, 185), Vector2(-232.059, 185), Vector2(-232.059, 185), Vector2(-232, 265), Vector2(-157.891, 265), Vector2(-157.891, 265), Vector2(120, 265), Vector2(250, 265), Vector2(250, 348)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Rooms/ClockMinimapRoom:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Rooms/HallwayMinimapRoom:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.00528054, 0.0554455, 0.134654, 0.285149, 1.77155, 1.82172, 1.90093, 2.05142, 3.72791, 3.81822, 3.96079, 4.23168),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Rooms/CaveMinimapRoom:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.0248353, 0.0900864, 0.140251, 0.219459, 0.369954, 1.12406, 1.17422, 1.25343, 1.40393, 2.62568, 2.71598, 2.85856, 3.12944),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Rooms/GardenMinimapRoom:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.0248353, 0.0900864, 0.140251, 0.219459, 0.369954, 0.462046, 0.512211, 0.591419, 0.741914, 2.01248, 2.06264, 2.14185, 2.86543, 4.57351, 4.63622, 4.73523, 4.92335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0, 0.0, -0.0523599, 0.0204104, 0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CastleVisuals/CastleSprite:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.0858086, 0.188119, 0.382395, 0.484705, 0.646865, 0.749175, 0.947067, 1.04938, 1.51801, 1.62032, 2.11405, 2.21636, 2.96734, 3.06965, 3.79552, 3.89783, 4.39784, 4.50015, 4.71287),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.00349066, -0.00349066, 0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CastleVisuals/Backgrounds:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.0158416, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1920, 0), Vector2(-3840, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Rooms/HallwayMinimapRoom:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.00952832, 0.277211, 0.554455, 0.892272, 1.81122, 1.91155, 2.83828, 4.67274, 4.80539),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-139, 222), Vector2(-145, 222), Vector2(-145, 301.676), Vector2(-145, 295.731), Vector2(-145, 295.731), Vector2(-145, 400), Vector2(-145, 500), Vector2(-145, 500), Vector2(-145, 351)]
+}
+
+[sub_resource type="Animation" id="Animation_1ogaw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CastleVisuals/CastleSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_l5jp5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CastleVisuals/CastleSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CastleVisuals/Backgrounds/BackgroundSpriteMorning:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ufgib")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CastleVisuals/Backgrounds/BackgroundSpriteMorning:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rooms/MonsterMinimapRoom:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-300.845, -259.16)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rooms/MonsterMinimapRoom:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rooms/VictimMinimapRoom:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(90.525, -21.105)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Rooms/VictimMinimapRoom:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Rooms/EmoMinimapRoom:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-260, 140)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Rooms/EmoMinimapRoom:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Rooms/KitchenMinimapRoom:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(259, 336.38)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Rooms/KitchenMinimapRoom:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Rooms/ClockMinimapRoom:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 47.53)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Rooms/ClockMinimapRoom:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Rooms/HallwayMinimapRoom:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Rooms/CaveMinimapRoom:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Rooms/GardenMinimapRoom:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CastleVisuals/CastleSprite:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CastleVisuals/Backgrounds:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Rooms/HallwayMinimapRoom:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-145.79, 337.205)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bj7kg"]
+_data = {
+&"LayoutChange1": SubResource("Animation_8x8x7"),
+&"LayoutChange2": SubResource("Animation_1tgw4"),
+&"LayoutChange3": SubResource("Animation_0rc1y"),
+&"RESET": SubResource("Animation_1ogaw")
+}
+
+[sub_resource type="Animation" id="Animation_gkv7c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CastleVisuals/GearSprites/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CastleVisuals/GearSprites/Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CastleVisuals/GearSprites/Sprite2D3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CastleVisuals/GearSprites/Sprite2D4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CastleVisuals/GearSprites/Sprite2D5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CastleVisuals/GearSprites/Sprite2D6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(176.5, -4.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CastleVisuals/GearSprites/Sprite2D7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(173.5, -13.5)]
+}
+
+[sub_resource type="Animation" id="Animation_aopek"]
+resource_name = "gears_churning"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CastleVisuals/GearSprites/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.291667, 0.625, 0.833333, 1.08333, 2.58333, 4.95833),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0523599, 0.122173, 0.698132, 0.645772, 3.14159, 8.72665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CastleVisuals/GearSprites/Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.375, 0.875, 1.83333, 2.54167, 2.75, 2.875, 3.25, 4.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.10472, 0.523599, -0.872665, 0.0523599, 0.139626, 0.122173, 0.436332, 5.06145]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CastleVisuals/GearSprites/Sprite2D3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.625, 1.29167, 1.91667, 2.20833, 2.83333, 3.08333, 4.41667, 4.91667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.0, 0.523599, 0.698132, 1.309, 1.16937, 0.872665, 3.66519, 3.83972]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CastleVisuals/GearSprites/Sprite2D4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1.25, 2.08333, 3.95833, 4.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.872665, 2.0944, 3.49066, 1.39626]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CastleVisuals/GearSprites/Sprite2D5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1.25, 2.08333, 3.95833, 4.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, -1.74533, -4.18879, -6.98132, -2.79253]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CastleVisuals/GearSprites/Sprite2D6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.875),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(176.5, -4.5), Vector2(44.615, 82.835)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CastleVisuals/GearSprites/Sprite2D7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.41667, 3.66667, 4.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(173.5, -13.5), Vector2(23.9, -3.265), Vector2(129.495, -8.19), Vector2(23.9, -3.265)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tgw4"]
+_data = {
+&"RESET": SubResource("Animation_gkv7c"),
+&"gears_churning": SubResource("Animation_aopek")
+}
+
+[sub_resource type="Animation" id="Animation_y1uuy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rooms/Hallway:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rooms/Hallway:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Map:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Map:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rooms/BaseRoom:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rooms/BaseRoom:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/DialogueUi:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/DialogueUi:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_b26j0"]
+resource_name = "show_shift"
+length = 5.3
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map/MapMovingAnimator")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("LayoutChange2"),
+"times": PackedFloat32Array(0.16666667)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rooms/Hallway:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 5.1666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rooms/Hallway:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 5.2, 5.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Map:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Map:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.29),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"intro_part3"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/DialogueUi:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1.6333332, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/DialogueUi:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2mxj8"]
+resource_name = "transport"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rooms/Hallway:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rooms/Hallway:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 12.553345),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rooms/BaseRoom:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rooms/BaseRoom:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 0.26794294),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Map:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"intro_part2"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufgib"]
+_data = {
+&"RESET": SubResource("Animation_y1uuy"),
+&"show_shift": SubResource("Animation_b26j0"),
+&"transport": SubResource("Animation_2mxj8")
+}
+
+[node name="OpeningScene" type="Node2D" unique_id=1318817916]
+script = ExtResource("1_oqnsc")
+
+[node name="Map" type="Node2D" parent="." unique_id=1131436300]
+z_index = 2
+script = ExtResource("2_2mxj8")
+
+[node name="CastleVisuals" type="Node2D" parent="Map" unique_id=1687443248]
+z_index = -1
+
+[node name="Backgrounds" type="Node2D" parent="Map/CastleVisuals" unique_id=2018129043]
+
+[node name="BackgroundSpriteNight" type="Sprite2D" parent="Map/CastleVisuals/Backgrounds" unique_id=1973934806]
+material = SubResource("ShaderMaterial_0rc1y")
+texture = ExtResource("4_y1uuy")
+offset = Vector2(-1920, 0)
+metadata/_edit_lock_ = true
+
+[node name="BackgroundSpriteMorning" type="Sprite2D" parent="Map/CastleVisuals/Backgrounds" unique_id=1112218937]
+material = SubResource("ShaderMaterial_0rc1y")
+texture = ExtResource("5_ufgib")
+metadata/_edit_lock_ = true
+
+[node name="BackgroundSpriteDay" type="Sprite2D" parent="Map/CastleVisuals/Backgrounds" unique_id=618562944]
+material = SubResource("ShaderMaterial_0rc1y")
+texture = ExtResource("6_pvybd")
+offset = Vector2(1920, 0)
+metadata/_edit_lock_ = true
+
+[node name="BackgroundSpriteNight2" type="Sprite2D" parent="Map/CastleVisuals/Backgrounds" unique_id=1994055460]
+material = SubResource("ShaderMaterial_0rc1y")
+texture = ExtResource("4_y1uuy")
+offset = Vector2(3840, 0)
+metadata/_edit_lock_ = true
+
+[node name="GearSprites" type="Node2D" parent="Map/CastleVisuals" unique_id=356288442]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/CastleVisuals/GearSprites" unique_id=800579350]
+position = Vector2(-386.5, 254)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_82m7v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/CastleVisuals/GearSprites" unique_id=621361927]
+position = Vector2(-185.5, -85.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_82m7v")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Map/CastleVisuals/GearSprites" unique_id=1634374238]
+position = Vector2(322.5, 5.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_82m7v")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Map/CastleVisuals/GearSprites" unique_id=84269039]
+position = Vector2(396.5, 194)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_82m7v")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Map/CastleVisuals/GearSprites" unique_id=1268857054]
+position = Vector2(427.5, 260)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ojkh3")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Map/CastleVisuals/GearSprites" unique_id=1579091461]
+position = Vector2(176.5, -4.5)
+rotation = -0.523599
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_5cjd8")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Map/CastleVisuals/GearSprites" unique_id=765905888]
+position = Vector2(173.5, -13.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_5cjd8")
+
+[node name="CastleSprite" type="Sprite2D" parent="Map/CastleVisuals" unique_id=1545398841]
+material = SubResource("ShaderMaterial_gkv7c")
+texture = ExtResource("10_l5jp5")
+metadata/_edit_lock_ = true
+
+[node name="DottedLines" type="Node2D" parent="Map/CastleVisuals" unique_id=747260002]
+
+[node name="Rooms" type="Node2D" parent="Map" unique_id=1645650994]
+
+[node name="CaveMinimapRoom" parent="Map/Rooms" unique_id=391739102 instance=ExtResource("11_irbka")]
+position = Vector2(-591, 405)
+
+[node name="ClockMinimapRoom" parent="Map/Rooms" unique_id=434506275 instance=ExtResource("12_kba22")]
+position = Vector2(480, 47.53)
+accessible_morning = false
+accessible_day = false
+
+[node name="EmoMinimapRoom" parent="Map/Rooms" unique_id=443050928 instance=ExtResource("13_ooirh")]
+position = Vector2(-260, 140)
+accessible_day = false
+
+[node name="GardenMinimapRoom" parent="Map/Rooms" unique_id=816389492 instance=ExtResource("14_cacl5")]
+position = Vector2(-571, 182)
+
+[node name="HallwayMinimapRoom" parent="Map/Rooms" unique_id=1931235757 instance=ExtResource("15_botym")]
+position = Vector2(-145.79, 337.205)
+
+[node name="KitchenMinimapRoom" parent="Map/Rooms" unique_id=533037215 instance=ExtResource("16_l2ve6")]
+position = Vector2(259, 336.38)
+
+[node name="MonsterMinimapRoom" parent="Map/Rooms" unique_id=1091952858 instance=ExtResource("17_qwgya")]
+position = Vector2(-300.845, -259.16)
+accessible_morning = false
+accessible_night = false
+
+[node name="VictimMinimapRoom" parent="Map/Rooms" unique_id=1906264942 instance=ExtResource("18_hrx77")]
+position = Vector2(90.525, -21.105)
+
+[node name="MapMovingAnimator" type="AnimationPlayer" parent="Map" unique_id=444425987]
+libraries/ = SubResource("AnimationLibrary_bj7kg")
+
+[node name="GearAnimator" type="AnimationPlayer" parent="Map" unique_id=1142924017]
+libraries/ = SubResource("AnimationLibrary_1tgw4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1607221125]
+layer = 2
+
+[node name="DialogueUi" parent="CanvasLayer" unique_id=546347259 instance=ExtResource("21_mpe04")]
+visible = false
+
+[node name="Cat" parent="CanvasLayer/DialogueUi" index="2"]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2126844981]
+script = ExtResource("22_aboey")
+musics = Array[AudioStream]([ExtResource("23_1o2i4"), ExtResource("24_k52as"), ExtResource("25_6uqah")])
+
+[node name="Rooms" type="CanvasLayer" parent="." unique_id=492049361]
+script = ExtResource("26_rv2t6")
+
+[node name="Hallway" parent="Rooms" unique_id=1153760675 instance=ExtResource("27_ese5y")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+room_id = "hallway"
+
+[node name="ClickableObject" parent="Rooms/Hallway/Node2D/cat_bed" index="0"]
+monitoring = false
+monitorable = false
+
+[node name="BaseRoom" parent="Rooms" unique_id=1910291929 instance=ExtResource("28_2sxql")]
+
+[node name="RoomTexture" parent="Rooms/BaseRoom" index="0"]
+texture = ExtResource("29_2mxj8")
+
+[node name="AnimationPlayerBonus" type="AnimationPlayer" parent="." unique_id=547440649]
+libraries/ = SubResource("AnimationLibrary_ufgib")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=91149307]
+zoom = Vector2(0.88, 0.88)
+script = ExtResource("30_b26j0")
+
+[editable path="CanvasLayer/DialogueUi"]
+[editable path="Rooms/Hallway"]
+[editable path="Rooms/Hallway/Node2D/cat_bed/ClickableObject"]
+[editable path="Rooms/BaseRoom"]

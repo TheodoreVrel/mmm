@@ -1,0 +1,111 @@
+[gd_scene load_steps=20 format=3 uid="uid://tg08085tytm2"]
+
+[ext_resource type="PackedScene" uid="uid://7a7xsoogt2yi" path="res://scenes/rooms/BaseRoom.tscn" id="1_6smnc"]
+[ext_resource type="Texture2D" uid="uid://cdbojfvnibv7d" path="res://assets/rooms_BG_wip/Hall/hall_BGday.png" id="2_1ps0b"]
+[ext_resource type="Texture2D" uid="uid://be5835nsgsrn8" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0000.png" id="3_buyp4"]
+[ext_resource type="Texture2D" uid="uid://cv73w72mo14va" path="res://assets/rooms_BG_wip/Hall/hall_CHAIRS.png" id="4_2mgge"]
+[ext_resource type="Texture2D" uid="uid://g47ten4xf438" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0001.png" id="4_d1bue"]
+[ext_resource type="Texture2D" uid="uid://skj8rhcgovh3" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0002.png" id="5_ehqdh"]
+[ext_resource type="Texture2D" uid="uid://cbmld4482oni2" path="res://assets/rooms_BG_wip/Hall/hall_TABLE.png" id="5_pilky"]
+[ext_resource type="Texture2D" uid="uid://cc0xntttigmw" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0003.png" id="6_mfk48"]
+[ext_resource type="Texture2D" uid="uid://cxijiecg3d8hr" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0004.png" id="7_freaq"]
+[ext_resource type="Texture2D" uid="uid://dt3f7fs8hftv5" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0005.png" id="8_cwbgn"]
+[ext_resource type="Texture2D" uid="uid://dp50s3ss0tk7r" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0006.png" id="9_nsxpp"]
+[ext_resource type="Texture2D" uid="uid://df84j5mx76diy" path="res://assets/rooms_BG_wip/Hall/fire/hall_fire_0007.png" id="10_fibi8"]
+[ext_resource type="Texture2D" uid="uid://bmlhab2f7wnvw" path="res://assets/rooms_BG_wip/Hall/hall_CAT3.png" id="13_by1y8"]
+[ext_resource type="PackedScene" uid="uid://bwoaek2g7b810" path="res://scenes/objects/ClickableObject.tscn" id="15_buyp4"]
+[ext_resource type="Texture2D" uid="uid://burydq6ic0j1a" path="res://assets/rooms_BG_wip/Hall/hall_CAT2.png" id="15_gu7ir"]
+[ext_resource type="Texture2D" uid="uid://c84be2qdnikbc" path="res://assets/rooms_BG_wip/Hall/hall_CAT1.png" id="16_1uq0y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsn5f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_buyp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d1bue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ehqdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mfk48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_freaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cwbgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nsxpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fibi8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_buyp4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1bue"]
+radius = 131.667
+height = 380.0
+
+[node name="Hallway" instance=ExtResource("1_6smnc")]
+mouse_filter = 1
+
+[node name="RoomTexture" parent="." index="0"]
+texture = ExtResource("2_1ps0b")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Node2D" type="Node2D" parent="." index="2"]
+position = Vector2(381, 240)
+scale = Vector2(0.8, 0.8)
+
+[node name="fire" type="AnimatedSprite2D" parent="Node2D" index="0"]
+position = Vector2(1120, 201.25)
+sprite_frames = SubResource("SpriteFrames_fsn5f")
+autoplay = "default"
+frame_progress = 0.248939
+
+[node name="chairs" type="Sprite2D" parent="Node2D" index="1"]
+position = Vector2(576.5, 290.01)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_2mgge")
+
+[node name="table" type="Sprite2D" parent="Node2D" index="2"]
+position = Vector2(576.5, 290.01)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_pilky")
+
+[node name="cat_corner" type="Sprite2D" parent="Node2D" index="3"]
+position = Vector2(679.735, 349.59)
+texture = ExtResource("13_by1y8")
+
+[node name="cat_bed" type="Sprite2D" parent="Node2D" index="4"]
+material = SubResource("ShaderMaterial_buyp4")
+position = Vector2(679.735, 349.59)
+
+[node name="ClickableObject" parent="Node2D/cat_bed" index="0" instance=ExtResource("15_buyp4")]
+position = Vector2(750.833, 394.167)
+object_id = "cat_bed"
+
+[node name="Sprite2D" parent="Node2D/cat_bed/ClickableObject" index="0"]
+position = Vector2(-748.068, -392.507)
+texture = ExtResource("15_gu7ir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/cat_bed/ClickableObject" index="1"]
+position = Vector2(16.6667, 8.33333)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d1bue")
+
+[node name="wool" type="Sprite2D" parent="Node2D" index="5"]
+position = Vector2(679.735, 349.59)
+texture = ExtResource("16_1uq0y")
+
+[editable path="Node2D/cat_bed/ClickableObject"]
